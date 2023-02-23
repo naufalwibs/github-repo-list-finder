@@ -14,7 +14,7 @@ export default function Home() {
   const router = useRouter();
   const { data, error, isLoading } = useSearchUser(router.query.search);
 
-  const methods = useForm({ defaultValues: { search: "" } });
+  const methods = useForm({ defaultValues: { search: router.query.search } });
 
   const onSearchUser = ({ search }) => {
     const query = {
@@ -64,6 +64,7 @@ export default function Home() {
           name="search"
           placeholder="Search Github Username Here..."
           className="flex-1"
+          defaultValue={router?.query?.search}
         />
       </Form>
 
